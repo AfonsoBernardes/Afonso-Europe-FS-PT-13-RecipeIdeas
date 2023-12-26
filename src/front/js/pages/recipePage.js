@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import ReactHtmlParser from 'react-html-parser';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { RecipeCard } from "../component/recipeCard";
-
-import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
+import PropTypes from "prop-types";
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { RecipeCard } from "../component/recipeCard";
 
 import "../../styles/recipePage.css"
 
