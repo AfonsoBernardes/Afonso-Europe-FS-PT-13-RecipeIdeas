@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
-import "../../styles/resultspage.css";
+import "../../styles/resultsPage.css";
 import { RecipeCard } from "../component/recipeCard";
 import { Spinner } from "../component/Spinner";
 
