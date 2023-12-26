@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/resultsPage.css";
 import { RecipeCard } from "../component/recipeCard";
-import { Spinner } from "../component/Spinner";
+import { Spinner } from "../component/spinner";
 
 
 
