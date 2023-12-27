@@ -10,6 +10,7 @@ import { RecipeCard } from "../component/recipeCard";
 import "../../styles/recipePage.css"
 
 export const Recipe = props => {
+
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 
@@ -30,6 +31,8 @@ export const Recipe = props => {
 	};
 
 	useEffect(() => {
+
+		actions.getFavourites()
 
 		const getRecipeInformation = async () => {
 			const recipeInfo = await actions.getRecipeInformation(params.id)
@@ -60,7 +63,7 @@ export const Recipe = props => {
 			setIsFavorite(store.favouriteRecipes.some(recipe => recipe.recipeExternalId == params.id))
 		}
 
-	}, [params.id])
+	}, [])
 
 
 	return (

@@ -97,7 +97,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(data => {
 						if (data) {
-							console.log("this came from the backend", data)
 							sessionStorage.setItem("token", data.access_token);
 							sessionStorage.setItem("user", JSON.stringify(data.user));
 							setStore({ token: data.access_token, user: data.user })
