@@ -12,7 +12,7 @@ import { Footer } from "./component/footer";
 import { Signup } from "./pages/signup";
 import { Login } from "./pages/login";
 
-import { ResultsPage } from "./pages/resultspage";
+import { ResultsPage } from "./pages/resultsPage";
 import { Profile } from "./pages/profile";
 import { Recipe } from "./pages/recipePage";
 
@@ -36,7 +36,7 @@ const Layout = () => {
                         <Route element={<Login />} path="/login" />
                         <Route element={<Recipe />} path="/recipe/:id" />
                         <Route element={<Demo />} path="/demo" />
-                        <Route element={<ResultsPage />} path="/resultpage" />
+                        <Route element={<ResultsPage />} path="/resultPage" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />

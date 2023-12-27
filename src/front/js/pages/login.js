@@ -21,7 +21,6 @@ export const Login = () => {
         e.preventDefault();
         const loginResult = actions.login(email, password)
         loginResult.then(result => {
-            console.log(result)
             if (result === true) {
                 navigate("/")
             }

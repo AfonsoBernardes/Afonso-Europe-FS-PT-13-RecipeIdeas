@@ -1,15 +1,16 @@
 import React, { useState, useEffect, useContext } from "react";
 import ReactHtmlParser from 'react-html-parser';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { RecipeCard } from "../component/recipeCard";
-
-import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
+import PropTypes from "prop-types";
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { RecipeCard } from "../component/recipeCard";
 
 import "../../styles/recipePage.css"
 
 export const Recipe = props => {
+
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 
@@ -31,6 +32,8 @@ export const Recipe = props => {
 
 	useEffect(() => {
 
+		actions.getFavourites()
+
 		const getRecipeInformation = async () => {
 			const recipeInfo = await actions.getRecipeInformation(params.id)
 			setRecipeInformation(recipeInfo)
@@ -51,16 +54,20 @@ export const Recipe = props => {
 			setRecipeInstructions(recipeInst)
 		};
 
+		const getFavourites = async () => {
+			const favRecipes = await actions.getFavourites()
+			if (favRecipes) {
+				setIsFavorite(favRecipes.some(recipe => recipe.recipeExternalId == params.id))
+			}
+		}
+
 		getRecipeInformation()
 		getRecipeInstructions()
+		getFavourites()
 		actions.getSimilarRecipes(params.id)
 		window.scrollTo(0, 0)
 
-		if (store.favouriteRecipes) {
-			setIsFavorite(store.favouriteRecipes.some(recipe => recipe.recipeExternalId == params.id))
-		}
-
-	}, [params.id])
+	}, [])
 
 
 	return (

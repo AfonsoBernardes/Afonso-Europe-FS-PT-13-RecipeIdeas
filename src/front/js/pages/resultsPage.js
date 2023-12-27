@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
-import "../../styles/resultspage.css";
+import "../../styles/resultsPage.css";
 import { RecipeCard } from "../component/recipeCard";
-import { Spinner } from "../component/Spinner";
+import { Spinner } from "../component/spinner";
 
 
 
@@ -18,14 +18,11 @@ export const ResultsPage = () => {
     const [resultsLoaded, setResultsLoaded] = useState(12);
     const [showGreeting, setShowGreeting] = useState(true);
 
-
-
     const handleCuisineSelect = (e) => {
         const selectedItem = e.target.value;
         setCuisine(selectedItem);
         console.log(selectedItem);
     }
-
 
     const handleDietSelect = (e) => {
         const selectedItem = e.target.value;
@@ -84,7 +81,6 @@ export const ResultsPage = () => {
         actions.clearResults()
     }, []);
 
-    // align-items-center d-flex justify-content-center
 
     return (
         <>
@@ -260,9 +256,8 @@ export const ResultsPage = () => {
                         </div>
                     </div>
 
-
                     <div className="d-flex justify-content-center mt-4">
-                    <button type="button" className="btn shadow-md px-5 py-3 rounded button-class" onClick={handleSearch}><p className="text-light display-6">Search for recipes</p></button>
+                        <button type="button" className="btn shadow-md px-5 py-3 rounded button-class" onClick={handleSearch}><p className="text-light display-6">Search for recipes</p></button>
                     </div>
                 </div>
             </div>
@@ -311,4 +306,3 @@ export const ResultsPage = () => {
         </>
     );
 };
-

@@ -16,7 +16,7 @@ export const RecipeCard = (props) => {
 		if (store.token && store.token !== "") {
 			isFavorite ?
 				actions.removeFavourite(recipeDetails)
-				:
+			:
 				actions.addFavourite(recipeDetails)
 
 			setIsFavorite(!isFavorite);
