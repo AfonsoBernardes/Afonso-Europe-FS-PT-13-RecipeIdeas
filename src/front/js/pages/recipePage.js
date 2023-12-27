@@ -54,14 +54,18 @@ export const Recipe = props => {
 			setRecipeInstructions(recipeInst)
 		};
 
+		const getFavourites = async () => {
+			const favRecipes = await actions.getFavourites()
+			if (favRecipes) {
+				setIsFavorite(favRecipes.some(recipe => recipe.recipeExternalId == params.id))
+			}
+		}
+
 		getRecipeInformation()
 		getRecipeInstructions()
+		getFavourites()
 		actions.getSimilarRecipes(params.id)
 		window.scrollTo(0, 0)
-
-		if (store.favouriteRecipes) {
-			setIsFavorite(store.favouriteRecipes.some(recipe => recipe.recipeExternalId == params.id))
-		}
 
 	}, [])
 
