@@ -3,18 +3,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			token: null,
 			user: null,
-			message: null,
+			isLoading: false,
 
 			randomRecipes: [],
-
 			complexSearchResults: [],
 			complexSearchIds: [],
 			filteredRecipes: [],
-
 			similarRecipesInfo: [],
-			isLoading: false,
 			favouriteRecipes: [],
-
 
 			userDetails: {
 				name: "",
@@ -27,7 +23,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				avatar: null,
 			},
-
 		},
 
 		actions: {
@@ -36,15 +31,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				if (!getStore().token && sessionStorage.getItem("token")) {
 					const token = sessionStorage.getItem("token");
 
-
 					if (token !== "undefined" && token !== null) {
 						setStore({ token: token });
 					}
 				}
+
 				if (!getStore().user && sessionStorage.getItem("user")) {
 					const user = sessionStorage.getItem("user");
+
 					if (user !== "undefined" && user !== null) {
-						console.log(user)
 						setStore({ user: JSON.parse(user) });
 					}
 				}
@@ -79,18 +74,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 			login: async (email, password) => {
 				const opts = {
 					method: "POST",
+
 					headers: {
 						"Content-Type": "application/json"
 					},
-					body: JSON.stringify(
-						{
-							"email": email,
-							"password": password
-						})
+
+					body: JSON.stringify({
+						"email": email,
+						"password": password
+					})
 				}
 
 				return fetch(process.env.BACKEND_URL + "api/token", opts)
-
 					.then(resp => {
 						if (resp.status === 200) return resp.json();
 						else return false
@@ -138,10 +133,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						if (resp.status === 200) {
 							return resp.json();
 						}
-						else { return false; }
+						return false;
 					})
 					.then(data => {
-						console.log("sign up successful", data)
 						return true;
 					})
 					.catch(error => {
