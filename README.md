@@ -1,4 +1,4 @@
-# WebApp boilerplate with React JS and Flask API
+<div align="center"><h1> Mixing Food </h1></div>
 
 Build web applications using React.js for the front end and python/flask for your backend API.
 
